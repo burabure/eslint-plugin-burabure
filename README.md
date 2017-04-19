@@ -27,6 +27,7 @@ enable the rules that you would like to use.
 
 # List of supported rules
 
+### react related rules
 * [burabure/forbid-component-props](docs/rules/forbid-component-props.md): Forbid certain props on Components w/regex support
 
 
