@@ -1,0 +1,10 @@
+extends: 'airbnb'
+env:
+  mocha: true
+rules:
+  func-names: 0
+  semi: [2, "never"]
+  no-unexpected-multiline: 2
+  no-shadow: 1
+  strict: 0
+  global-require: 0
