@@ -23,6 +23,7 @@
   "homepage": "https://github.com/burabure/eslint-plugin-burabure",
   "bugs": "https://github.com/burabure/eslint-plugin-burabure/issues",
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "eslint": "^3.0.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -42,5 +43,9 @@
     "eslint-plugin",
     "eslintplugin"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "doctrine": "^2.0.0",
+    "has": "^1.0.1"
+  }
 }
