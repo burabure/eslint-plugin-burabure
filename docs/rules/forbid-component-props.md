@@ -35,9 +35,13 @@ The following patterns are not considered warnings:
 
 ```js
 ...
-"forbid-component-props": [<enabled>, { "forbid": [<string>], "forbidPatterns": [<string>], ignoreDomNodes: <boolean> }]
+"forbid-component-props": [<enabled>, { "allowPatterns": [<string>], "forbid": [<string>], "forbidPatterns": [<string>], ignoreDomNodes: <boolean> }]
 ...
 ```
+### `allowPatterns`
+
+An array of strings, with the patterns of props that will always be allowed, even if a forbidPatterns would forbid it; you can use `*` as a wildcard. e.g: `['data-qa-*', '*-foo-*']`
+This is meant to be used as an override to `forbidPatterns` so that you can forbid some general pattern and allow some edgecases, e.g.: forbid all `data-*` except `data-qa-*`.
 
 ### `forbid`
 

@@ -118,6 +118,17 @@ ruleTester.run('forbid-component-props', rule, {
     ].join('\n'),
     options: [{ forbidPatterns: ['data-*', 'custom-*'] }],
     parserOptions,
+  }, {
+    code: [
+      'const First = React.createClass({',
+      '  propTypes: externalPropTypes,',
+      '  render: function() {',
+      '    return <Foo data-qa="baz"/>',
+      '  }',
+      '})',
+    ].join('\n'),
+    options: [{ allowPatterns: ['data-qa*'], forbidPatterns: ['data-*'] }],
+    parserOptions,
   }],
 
   invalid: [{
@@ -197,6 +208,23 @@ ruleTester.run('forbid-component-props', rule, {
     ].join('\n'),
     parserOptions,
     options: [{ forbidPatterns: ['data-*', 'custom-*'] }],
+    errors: [{
+      message: 'Prop `data-indicators` is forbidden on Components',
+      line: 4,
+      column: 17,
+      type: 'JSXAttribute',
+    }],
+  }, {
+    code: [
+      'const First = React.createClass({',
+      '  propTypes: externalPropTypes,',
+      '  render: function() {',
+      '    return <Foo data-indicators />',
+      '  }',
+      '})',
+    ].join('\n'),
+    parserOptions,
+    options: [{ allowPatterns: ['data-qa*'], forbidPatterns: ['data-*', 'custom-*'] }],
     errors: [{
       message: 'Prop `data-indicators` is forbidden on Components',
       line: 4,
